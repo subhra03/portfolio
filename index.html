@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subhramoy Bhowmik – Web Developer</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <a href="#" class="navbar-brand">
+        <img src="logo.png" width="45" alt="" class="d-inline-block align-middle mr-2" />
+        <span class="navbar-text">Subhramoy Bhowmik</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#About">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero" id="Home" data-aos="fade-up">
+    <div class="container text-center">
+      <h1>Subhramoy Bhowmik</h1>
+      <p class="lead">I'm a dedicated web developer with expertise in HTML, CSS, JavaScript, and Python.</p>
+    </div>
+  </div>
+
+  <div class="container section mt-5" id="Projects" data-aos="fade-up">
+    <div class="text-center">
+      <h2>Projects</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="project-card">
+          <h3>Human Pose Estimation</h3>
+          <p>
+            Our project involved accurately estimating human poses using a pre-trained deep learning model. By
+            processing video frames, we estimated the positions of body keypoints and visualized them. This has
+            applications in healthcare, sports analysis, animation, and robotics. Our work demonstrates the importance
+            of accurate pose estimation and its potential for further advancements.
+          </p>
+          <img src="1.jpg" class="img-fluid" alt="Human Pose Estimation" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="project-card">
+          <h3>Event Making Calendar</h3>
+          <p>
+            The project involves developing a web-based calendar application with event management functionality. Users
+            can navigate through months, view events, and add new events using an intuitive interface. The project
+            likely requires JavaScript for handling calendar interactions and event management, along with CSS for
+            styling the calendar and event elements. The goal is to create a user-friendly and visually appealing
+            calendar application for effectively managing events.
+          </p>
+          <img src="2.jpg" class="img-fluid" alt="Event Making Calendar" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section mt-5" id="About" data-aos="fade-up">
+    <div class="text-center">
+      <h2>About</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="my.jpg" class="img-fluid rounded-circle" alt="Subhramoy Bhowmik" />
+      </div>
+      <div class="col-md-6">
+        <p>
+          Welcome to my portfolio! I'm Subhramoy Bhowmik, a passionate software developer with expertise in HTML, CSS,
+          and JavaScript. I have a strong inclination towards building dynamic and user-friendly web applications that
+          deliver seamless experiences.
+        </p>
+        <p>
+          My journey in the world of software development began with a deep fascination for technology and its ability
+          to shape our lives. Over the years, I have honed my skills in front-end development, constantly staying
+          updated with the latest industry trends and best practices.
+        </p>
+        <p>
+          With a keen eye for detail and a commitment to delivering high-quality solutions, I strive to create visually
+          appealing and responsive websites that leave a lasting impression. I believe that the intersection of design
+          and functionality is where great user experiences are born.
+        </p>
+        <p>
+          In addition to my technical skills, I am a strong collaborator and enjoy working in teams to bring ideas to
+          life. I thrive in an environment that fosters creativity and encourages innovation. I am always eager to
+          learn from others and share my knowledge with fellow developers.
+        </p>
+        <p>
+          This portfolio showcases a selection of my projects, each representing a unique challenge and an opportunity
+          for growth. I invite you to explore my work and witness the culmination of my passion and dedication.
+        </p>
+        <p>
+          Thank you for visiting my portfolio. I look forward to connecting with you and discussing how we can
+          collaborate to create impactful software solutions.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section mt-5" id="Contact" data-aos="zoom-in">
+    <div class="text-center">
+      <h2>Contact</h2>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset: 300,
+      duration: 1000,
+    });
+  </script>
+</body>
+
+</html>
