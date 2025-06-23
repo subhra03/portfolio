@@ -600,3 +600,23 @@
         padding: 80px 0;
       }
     }
+
+
+
+.resume-btn-container {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.resume-btn-container .btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 576px) {
+  .resume-btn-container {
+    flex-direction: column;
+  }
+}
