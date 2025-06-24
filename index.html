@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,6 +13,9 @@
 </head>
 
 <body>
+  <!-- Starfield Background -->
+  <canvas id="starfield" class="starfield"></canvas>
+
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container nav-container">
@@ -394,7 +396,6 @@
           </button>
         </form>
 
-
         <div class="contact-info" data-aos="fade-left" data-aos-delay="200">
           <h3>Contact Info</h3>
 
@@ -404,7 +405,7 @@
             </div>
             <div class="contact-details">
               <h4>Location</h4>
-              <p>Assam ,India</p>
+              <p>Assam, India</p>
             </div>
           </div>
 
@@ -507,6 +508,102 @@
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Starfield implementation
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas size
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Star settings
+    const starsCount = 1000;
+    const stars = [];
+    const maxDepth = 1000;
+    
+    // Create stars
+    for (let i = 0; i < starsCount; i++) {
+      stars.push({
+        x: Math.random() * canvas.width - canvas.width / 2,
+        y: Math.random() * canvas.height - canvas.height / 2,
+        z: Math.random() * maxDepth,
+        prevZ: 0
+      });
+    }
+    
+    // Animation variables
+    let speed = 0.05;
+    let centerX = canvas.width / 2;
+    let centerY = canvas.height / 2;
+    let focalLength = canvas.width * 0.8;
+    let hue = 0;
+    
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      // Clear canvas with semi-transparent black for trailing effect
+      ctx.fillStyle = 'rgba(10, 10, 20, 0.2)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Update and draw stars
+      hue += 0.5;
+      for (let i = 0; i < stars.length; i++) {
+        const star = stars[i];
+        
+        // Store previous position
+        star.prevZ = star.z;
+        
+        // Move star closer
+        star.z -= speed * 50;
+        
+        // Reset star if it goes behind camera
+        if (star.z <= 0) {
+          star.x = Math.random() * canvas.width - canvas.width / 2;
+          star.y = Math.random() * canvas.height - canvas.height / 2;
+          star.z = maxDepth;
+          star.prevZ = maxDepth;
+        }
+        
+        // Calculate 2D position
+        const scale = focalLength / (star.z + focalLength);
+        const x2d = star.x * scale + centerX;
+        const y2d = star.y * scale + centerY;
+        
+        // Calculate previous 2D position
+        const prevScale = focalLength / (star.prevZ + focalLength);
+        const prevX2d = star.x * prevScale + centerX;
+        const prevY2d = star.y * prevScale + centerY;
+        
+        // Draw star
+        ctx.beginPath();
+        ctx.moveTo(prevX2d, prevY2d);
+        ctx.lineTo(x2d, y2d);
+        
+        // Color based on speed and position
+        const speedFactor = Math.min(1, (maxDepth - star.z) / maxDepth);
+        const colorHue = (hue + speedFactor * 120) % 360;
+        const colorSat = 100;
+        const colorLight = 50 + speedFactor * 50;
+        
+        ctx.strokeStyle = `hsla(${colorHue}, ${colorSat}%, ${colorLight}%, ${speedFactor})`;
+        ctx.lineWidth = speedFactor * 2;
+        ctx.stroke();
+      }
+    }
+    
+    // Handle resize
+    window.addEventListener('resize', function() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      centerX = canvas.width / 2;
+      centerY = canvas.height / 2;
+      focalLength = canvas.width * 0.8;
+    });
+    
+    // Start animation
+    animate();
+
     // Initialize AOS
     AOS.init({
       duration: 800,
@@ -586,5 +683,4 @@
     });
   </script>
 </body>
-
 </html>
